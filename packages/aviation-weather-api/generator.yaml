@@ -1,0 +1,29 @@
+# Required properties
+npmName: aviation-weather-api
+npmVersion: 1.0.0
+apiPackage: api
+modelPackage: models
+apiSuffix: AviationWeatherApi
+
+# Format options
+fileNaming: "kebab-case"
+useObjectParameters: true
+useSingleRequestParameter: true
+
+# TypeScript options
+supportsES6: true
+typescriptThreePlus: true
+withInterfaces: true
+
+# Response type fix
+responseAs: Response
+useResponseType: true
+
+# Other options
+allowUnicodeIdentifiers: true
+legacyDiscriminatorBehavior: false
+skipValidateSpec: false
+
+# To support additional properties in models, use:
+additionalProperties:
+  modelPropertyNaming: camelCase

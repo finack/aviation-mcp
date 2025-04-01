@@ -1,0 +1,30 @@
+{
+  "name": "aviation-weather-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for aviation weather and flight planning",
+  "type": "module",
+  "main": "dist/index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "aviation-weather-api:build": "npm run aviation-weather-api:fetch && npm run aviation-weather-api:generate && cd packages/aviation-weather-api && npm run build",
+    "aviation-weather-api:clean": "rm -Rf aviation-weather-api/src && rm -Rf aviation-weather-api/dist",
+    "aviation-weather-api:fetch": "curl -o packages/aviation-weather-api/swagger.yaml https://aviationweather.gov/data/api/swagger.yaml",
+    "aviation-weather-api:generate": "cd packages/aviation-weather-api && openapi-generator-cli generate -i ./swagger.yaml -g typescript-fetch -o ./ -c generator.yaml",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "update": "npx npm-check-updates --interactive --format group"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "aviation-weather-api": "*",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.18.4",
+    "@types/node": "^22.13.14",
+    "typescript": "^5.8.2"
+  }
+}
