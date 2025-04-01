@@ -14,6 +14,7 @@
     "aviation-weather-api:fetch": "curl -o packages/aviation-weather-api/swagger.yaml https://aviationweather.gov/data/api/swagger.yaml",
     "aviation-weather-api:generate": "cd packages/aviation-weather-api && openapi-generator-cli generate -i ./swagger.yaml -g typescript-fetch -o ./ -c generator.yaml",
     "build": "tsc",
+    "inspect": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js",
     "start": "node dist/index.js",
     "update": "npx npm-check-updates --interactive --format group"
   },
@@ -24,6 +25,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.7.0",
     "@openapitools/openapi-generator-cli": "^2.18.4",
     "@types/node": "^22.13.14",
     "typescript": "^5.8.2"
