@@ -4,6 +4,7 @@
   "description": "MCP server for aviation weather and flight planning",
   "type": "module",
   "main": "dist/index.js",
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
